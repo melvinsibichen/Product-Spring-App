@@ -17,12 +17,13 @@ public class ProductController {
     public String HomePage(){
         return "Welcome to Product App Home";
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/viewAll")
     public List<Products> ViewAll(){
         return (List<Products>) dao.findAll();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping(path = "/addProduct", consumes = "application/json", produces = "application/json")
     public String AddProduct(@RequestBody Products p){
         dao.save(p);
